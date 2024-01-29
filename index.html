@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dicee</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Refresh Me</h1>
+
+    <div class="dice">
+      <p>Player 1</p>            
+      <img class="img1" src="./dice6.png">
+    </div>
+
+    <div class="dice">
+      <p>Player 2</p>
+      <img class="img2" src="./dice6.png">
+    </div>
+
+    <footer>
+      <h3>By TMG Tarou Production</h3>
+    </footer>
+  </div>
+
+  <script>
+    var player1result = Math.floor(6 * Math.random()) + 1;
+    var player2result = Math.floor(6 * Math.random()) + 1;
+    var iconPlayer1 = document.querySelector(".img1");
+    var iconPlayer2 = document.querySelector(".img2");
+    var result = document.querySelector("h1");
+
+   
+    if(player1result > player2result){
+      result.textContent = "PLAYER 1 WINS"
+    } else if(player2result > player1result){
+      result.textContent = "PLAYER 2 WINS"
+    }else{
+      result.textContent = "ITS A TIE"
+    }
+
+    function updatePlayer1Image(player1result) {
+      var imagePath = "./dice" + player1result + ".png";
+      iconPlayer1.src = imagePath;
+    }
+    updatePlayer1Image(player1result);
+
+    function updatePlayer2Image(player2result) {
+      var imagePath = "./dice" + player2result + ".png";
+      iconPlayer2.src = imagePath;
+    }
+    updatePlayer2Image(player2result);
+   
+  </script>
+</body>
+
+
+</html>
